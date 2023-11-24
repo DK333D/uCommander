@@ -1,0 +1,112 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Name="window" x:Class="WpfApplication1.MainWindow"
+        Title="uCommander" Height="703.699" Width="953.603" ResizeMode="CanMinimize">
+    <Grid RenderTransformOrigin="0.5,0.5" Margin="-0.207,0,1.207,0.99" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="101*"/>
+            <RowDefinition Height="486*"/>
+            <RowDefinition Height="62*"/>
+            <RowDefinition Height="25*"/>
+        </Grid.RowDefinitions>
+        <Grid.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform/>
+                <SkewTransform/>
+                <RotateTransform Angle="0.279"/>
+                <TranslateTransform/>
+            </TransformGroup>
+        </Grid.RenderTransform>
+        <ListView x:Name="LeftWindow" Margin="46,10.2,589.2,8.4" IsHitTestVisible="True" MouseDoubleClick="MouseDoubleClicked" SelectionChanged="LeftWindow_SelectionChanged" MouseLeftButtonDown="LeftWindow_MouseLeftButtonDown" PreviewMouseUp="LeftWindow_PreviewMouseUp" Grid.Row="1">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Type" Width="30" DisplayMemberBinding="{Binding Etype}" />
+                    <GridViewColumn Header="Name" Width="250" DisplayMemberBinding="{Binding Ename}" />
+                </GridView>
+            </ListView.View>
+            <ListBoxItem/>
+            <Button Background="{x:Null}"/>
+            <ListBoxItem Content="test"/>
+        </ListView>
+        <Button x:Name="DisplayGroups_l" HorizontalAlignment="Left" Margin="11,10.2,0,0" VerticalAlignment="Top" Width="30" Click="DisplayGroups_l_Click" Height="30" Grid.Row="1" ToolTip="Pokaż wszystkie grupy">
+            <Image x:Name="ImgGroups_l" Source="arrow_black.png" Stretch="Fill" Height="Auto" VerticalAlignment="Top"/>
+        </Button>
+        <Button x:Name="Delete_U" HorizontalAlignment="Left" Margin="131,0.6,0,0" Width="60"  Click="Delete_l_Click" Grid.Row="2" Opacity="0.2" IsEnabledChanged="Button_IsEnabledChanged" ToolTip="Usuń użytkowników lub grupy" Height="61" VerticalAlignment="Top">
+            <Image Source="DeleteUser.png" Stretch="Fill"/>
+        </Button>
+
+        <Button x:Name="AddUsers" HorizontalAlignment="Left" Margin="46,0.6,0,24.6" Width="60" Click="AddUsers_Click" Grid.Row="2" ToolTip="Dodaj użytkownika/użytkowników" Grid.RowSpan="2">
+            <Image x:Name="AddUsers_Img" Source="AddUser.png" Stretch="Fill"/>
+
+        </Button>
+
+        <ListView x:Name="RightWindow" Margin="574,10.2,45.2,8.4" IsHitTestVisible="True" MouseDoubleClick="MouseDoubleClicked" MouseLeftButtonDown="RightWindow_MouseLeftButtonDown" SelectionChanged="RightWindow_SelectionChanged" PreviewMouseUp="RightWindow_PreviewMouseUp" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Typ" Width="30" DisplayMemberBinding="{Binding Etype}" />
+                    <GridViewColumn Header="Nazwa" Width="260" DisplayMemberBinding="{Binding Ename}" />
+                </GridView>
+            </ListView.View>
+            <ListBoxItem/>
+            <Button Background="#FF0DDDFF"/>
+            <ListBoxItem Content="test"/>
+        </ListView>
+        <Button x:Name="DisplayGroups_r" HorizontalAlignment="Left" Margin="539,10.2,0,0" VerticalAlignment="Top" Width="30" Click="DisplayGroups_r_Click" Height="30" Grid.Row="1" ToolTip="Pokaż wszystkie grupy">
+            <Image x:Name="ImgGroups_r" Source="arrow_black.png" Stretch="Fill" Height="Auto" VerticalAlignment="Top"/>
+        </Button>
+        <TextBox x:Name="Expression_l" HorizontalAlignment="Left" Height="20" Margin="66,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" TextChanged="Expression_l_TextChanged"/>
+        <Button x:Name="Magnifier_l" HorizontalAlignment="Left" Margin="46,28,0,0" VerticalAlignment="Top" Width="20" Height="20" RenderTransformOrigin="0.888,0.345" Click="Magnifier_l_Click" ToolTip="Wyszukaj za pomocą wyrażenia regularnego">
+            <Image Source="magnifier.png" Stretch="Fill"/>
+        </Button>
+        <TextBox x:Name="Expression_r" Height="20                  " Margin="595,26,45.2,0" TextWrapping="Wrap" VerticalAlignment="Top" TextChanged="Expression_r_TextChanged"/>
+        <Button x:Name="Magnifier_r" HorizontalAlignment="Left" Margin="575,26,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.888,0.345" Click="Magnifier_r_Click" Width="20" Height="20" ToolTip="Wyszukaj za pomocą wyrażenia regularnego">
+            <Image Source="magnifier.png" Stretch="Fill"/>
+        </Button>
+        <ScrollViewer HorizontalAlignment="Left" Height="46" Margin="46,0,0,1.8" VerticalAlignment="Bottom" Width="310" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" CanContentScroll="True" FontWeight="Bold">
+            <TextBlock x:Name="now_l" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="28" ScrollViewer.HorizontalScrollBarVisibility="Auto" MinWidth ="0"/>
+        </ScrollViewer>
+        <ScrollViewer HorizontalAlignment="Left" Height="48" Margin="574,0,0,1.8" VerticalAlignment="Bottom" Width="326" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled"  CanContentScroll="True" FontWeight="Bold">
+            <TextBlock x:Name="now_r" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="28" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True"/>
+        </ScrollViewer>
+        <Button x:Name="Add_Group" HorizontalAlignment="Left" Margin="211,0.6,0,24.6" Grid.Row="2" Width="60" Click="Add_Group_Click" ToolTip="Dodaj grupę" Grid.RowSpan="2">
+            <Image x:Name="AddGroupImg" Source="AddGroup.png" Stretch="Fill" />
+        </Button>
+
+
+        <Button x:Name="VirtualDeleteButton" Content="VirtualDeleteButton" HorizontalAlignment="Left" Margin="574,134.2,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Visibility="Collapsed" Height="0"/>
+        <Button x:Name="Delete_G" HorizontalAlignment="Left" Margin="293,0.6,0,0" Width="60" Click="Delete_G_Click" Grid.Row="2" Opacity="0.2" IsEnabledChanged="Button_IsEnabledChanged" ToolTip="Usuń zaznaczone grupy" Height="61" VerticalAlignment="Top">
+            <Image Source="DeleteGroup.png" Stretch="Fill"/>
+        </Button>
+
+        <StackPanel Margin="427,12.2,439.2,0" Grid.Row="1" Height="359" VerticalAlignment="Top">
+            <Image x:Name="DirectionImg" Source="arrow_black.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top" HorizontalAlignment="Left" ToolTip="Kierunek przenoszenia użytkowników" Grid.Row="1" Height="70" Width="70" OpacityMask="Gray" Opacity="0.2">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Button x:Name="AddUs_toGs" VerticalAlignment="Top" HorizontalAlignment="Left" Click="AddUs_toGs_Click" IsEnabled="False" Grid.Row="1" Height="70" Width="70" ToolTip="Dodaj wybranych użytkowników do wybranych grup" IsEnabledChanged="Button_IsEnabledChanged" Background="{x:Null}" Opacity="0.2" >
+                <Image x:Name="AddUs_toGs_Img" 
+                   Source="AddUserToGroup.png" 
+                   Stretch="Fill" 
+                   IsEnabled="False" OpacityMask="Black" 
+                   />
+
+            </Button>
+            <Button x:Name="DeleteUs_fromGs" HorizontalAlignment="Left" VerticalAlignment="Top" Width="70" IsEnabled="False" Click="DeleteUs_fromGs_Click" Grid.Row="1" Height="70" ToolTip="Usuń wybranych użytkowników z wybranych grup" IsEnabledChanged="Button_IsEnabledChanged" Opacity="0.2" >
+                <Image Source="DeleteUserFromGroup.png" Stretch="Fill" IsEnabled="False"/>
+            </Button>
+            <Button x:Name="MoveUs_toGs" VerticalAlignment="Top" Click="MoveUs_toGs_Click" IsEnabled="False" Height="70" ToolTip="Przenieś wybranych użytkowników do wybranych grup" IsEnabledChanged="Button_IsEnabledChanged" Background="{x:Null}" Opacity="0.2" HorizontalAlignment="Left" Width="70" d:LayoutOverrides="HorizontalAlignment">
+                <Image Source="MoveUsers.png" Stretch="Fill"/>
+            </Button>
+            <Button x:Name="Refresh" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="70" Height="70" Click="Refresh_Click" ToolTip="Odśwież">
+                <Image Source="Refresh.png" Stretch="Fill" />
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>

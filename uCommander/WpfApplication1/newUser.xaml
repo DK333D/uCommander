@@ -1,0 +1,95 @@
+﻿<Window x:Class="WpfApplication1.NewUser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication1"
+        mc:Ignorable="d"
+        Title="newUser" Height="633.179" Width="387.235">
+    <Grid Margin="0,-12,-181,-3" MinWidth="560" HorizontalAlignment="Left" Width="387" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="289*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="Create" Content="Utworz" Margin="0,0,313,13.8" Click="Create_Click" IsEnabled="False" HorizontalAlignment="Right" Width="75" RenderTransformOrigin="0.5,0.5" Height="19" VerticalAlignment="Bottom">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.104"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button x:Name="CloseWindow" Content="Anuluj" Margin="0,0,233,13.8" Click="CloseWindow_Click" HorizontalAlignment="Right" Width="75" Height="19" VerticalAlignment="Bottom" PreviewKeyDown="CloseWindow_PreviewKeyDown"/>
+        <StackPanel x:Name="st_active" Height="37" Margin="199,285,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="75">
+            <StackPanel.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </StackPanel.RenderTransform>
+            <RadioButton x:Name="Rb_active_yes" Content="tak" IsChecked="True" Margin="0,0,35.2,0" Height="15" PreviewKeyUp="Rb_active_yes_PreviewKeyUp" />
+            <RadioButton x:Name="Rb_active_no" Content="nie" Margin="0,0,35.2,0" Height="15" PreviewKeyUp="Rb_active_no_PreviewKeyUp" />
+        </StackPanel>
+        <StackPanel x:Name="st_logonpasswordchg" Height="37" Margin="199,405,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="75">
+            <RadioButton x:Name="Rb_logonpasswordchg_yes" Content="tak" IsChecked="True" Margin="0,0,34.4,0" PreviewKeyUp="Rb_logonpasswordchg_yes_PreviewKeyUp"/>
+            <RadioButton x:Name="Rb_logonpasswordchg_no" Content="nie" IsChecked="True" Margin="0,0,34.4,0" PreviewKeyUp="Rb_logonpasswordchg_no_PreviewKeyUp"/>
+        </StackPanel>
+        <StackPanel x:Name="st_passwordchg" Height="37" Margin="199,327,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="75">
+            <RadioButton x:Name="Rb_passwordchg_yes" Content="tak" IsChecked="True" Margin="0,0,32.4,0" PreviewKeyUp="Rb_passwordchg_yes_PreviewKeyUp" />
+            <RadioButton x:Name="Rb_passwordchg_no" Content="nie" Margin="0,0,32.4,0" PreviewKeyUp="Rb_passwordchg_no_PreviewKeyUp" />
+        </StackPanel>
+        <StackPanel x:Name="st_passwordreq" Height="37" Margin="199,369,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="75">
+            <RadioButton x:Name="Rb_passwordreq_yes" Content="tak" IsChecked="True" Margin="0,0,33.4,0" PreviewKeyUp="Rb_passwordreq_yes_PreviewKeyUp" />
+            <RadioButton x:Name="Rb_passwordreq_no" Content="nie" IsChecked="True" Margin="0,0,33.4,0" PreviewKeyUp="Rb_passwordreq_no_PreviewKeyUp" />
+        </StackPanel>
+        <TextBlock HorizontalAlignment="Left" Margin="20,285,0,0" TextWrapping="Wrap" Text="Konto jest aktywne" VerticalAlignment="Top" Width="165"/>
+        <TextBox x:Name="Fullname" Height="20" Margin="111,192,228,0" TextWrapping="Wrap" VerticalAlignment="Top" PreviewKeyUp="Fullname_PreviewKeyUp" />
+        <TextBlock HorizontalAlignment="Left" Margin="20,222,0,0" TextWrapping="Wrap" Text="Opis" VerticalAlignment="Top" Width="69" Height="21"/>
+        <TextBox x:Name="Comment" Height="20" Margin="111,222,229,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220" PreviewKeyUp="Comment_PreviewKeyUp"/>
+        <TextBlock HorizontalAlignment="Left" Margin="20,192,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="69" Text="Pełna nazwa" Height="20"/>
+        <TextBlock HorizontalAlignment="Left" Margin="20,326,0,0" TextWrapping="Wrap" Text="Użytkownik może zmieniać hasło " VerticalAlignment="Top" Width="165"/>
+        <TextBlock HorizontalAlignment="Left" Margin="20,369,0,0" TextWrapping="Wrap" Text="Użytkownik musi posiadać hasło" VerticalAlignment="Top" Width="165"/>
+        <TextBlock HorizontalAlignment="Left" Margin="20,405,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"><Run Text="Użytkownik musi zmienić hasło przy "/><Run Text="następnym"/><Run Text=" logowaniu"/><LineBreak/><Run Text=""/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="20,473,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"><Run Text="Wygasa"/></TextBlock>
+        <StackPanel x:Name="st_logonpasswordchg_Copy" Height="47" Margin="199,473,233,0" VerticalAlignment="Top">
+            <RadioButton x:Name="Rb_expires_never" Content="nigdy" IsChecked="True" HorizontalAlignment="Left" Width="71" PreviewKeyUp="Rb_expires_never_PreviewKeyUp" />
+            <RadioButton x:Name="Rb_expires_Dp" HorizontalAlignment="Right" Width="128" PreviewKeyUp="Rb_expires_Dp_PreviewKeyUp" LostFocus="Rb_expires_Dp_LostFocus" >
+                <DatePicker x:Name="Dp_expires" HorizontalAlignment="Left" VerticalAlignment="Top" SelectedDate = "{Binding PropertyName, StringFormat='dd-MM-yyyy'}" CalendarClosed="Dp_expires_CalendarClosed" />
+            </RadioButton>
+        </StackPanel>
+        <Grid x:Name="oneUser" HorizontalAlignment="Left" Height="110" Margin="10,60,0,0" VerticalAlignment="Top" Width="330" Background="White">
+            <TextBox x:Name="NameUser" Height="20" Margin="100,10,10,0" TextWrapping="Wrap" VerticalAlignment="Top" MaxLength="20" TextChanged="NameUser_TextChanged" PreviewKeyUp="NameUser_PreviewKeyUp"/>
+            <PasswordBox x:Name="Password" Margin="100,40,10,0" VerticalAlignment="Top" Height="20" MaxLength="14" PreviewKeyUp="Password_PreviewKeyUp"/>
+            <PasswordBox x:Name="Password_confirmation" Margin="100,70,0,0" Height="20" VerticalAlignment="Top" MaxLength="14" Width="222" HorizontalAlignment="Left" PreviewKeyUp="Password_confirmation_PreviewKeyUp"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="84" Text="Nazwa" Height="20"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,40,0,0" TextWrapping="Wrap" Text="Hasło" VerticalAlignment="Top" Width="84" Height="20"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="84" RenderTransformOrigin="-1.039,0.881"><Run Text="Potwierd"/><Run Text="ź"/><Run Text=" hasło"/></TextBlock>
+        </Grid>
+        <Grid x:Name="moreUsers" HorizontalAlignment="Left" Height="110" Margin="10,60,0,0" VerticalAlignment="Top" Width="330" Background="White">
+            <TextBox x:Name="Od" HorizontalAlignment="Left" Height="20" Margin="120,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="90" PreviewKeyUp="Od_PreviewKeyUp" />
+            <TextBox x:Name="Do" HorizontalAlignment="Left" Height="20" Margin="230,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="90" PreviewKeyUp="Do_PreviewKeyUp"/>
+            <TextBox x:Name="Prefiks" HorizontalAlignment="Left" Height="20" Margin="100,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220" TextChanged="Prefiks_TextChanged" MaxLength="19" PreviewKeyUp="Prefiks_PreviewKeyUp"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="84" Text="Prefiks" Height="20"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,40,0,0" TextWrapping="Wrap" Text="Sufiks" VerticalAlignment="Top" Width="84" MinHeight="20"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="85" RenderTransformOrigin="-1.039,0.881" MinHeight="20"><Run Text="Zapisz"/><Run Text=" hasła "/><Run Text="do:"/></TextBlock>
+            <TextBlock HorizontalAlignment="Left" Margin="100,40,0,0" TextWrapping="Wrap" Text="od" VerticalAlignment="Top" Width="15" MinHeight="20"/>
+            <TextBlock HorizontalAlignment="Left" Margin="214,40,0,0" TextWrapping="Wrap" Text="do" VerticalAlignment="Top" Width="15" MinHeight="20"/>
+            <ScrollViewer HorizontalAlignment="Left" Height="40" Margin="100,70,0,0" VerticalAlignment="Top" Width="150" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
+                <TextBox x:Name="FilePath" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" MinWidth="150" PreviewKeyUp="FilePath_PreviewKeyUp" />
+            </ScrollViewer>
+            <Button x:Name="Browse" Content="Przegladaj" HorizontalAlignment="Left" Margin="255,70,0,0" VerticalAlignment="Top" Width="65" Click="Browse_Click" Height="20" RenderTransformOrigin="0.5,0.5" PreviewKeyDown="Browse_PreviewKeyDown" PreviewKeyUp="Browse_PreviewKeyDown"/>
+        </Grid>
+        <RadioButton x:Name="Rb_more" Content="wielu użytkowników" HorizontalAlignment="Left" Margin="151,37,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked_2" Height="20" PreviewKeyUp="Rb_more_PreviewKeyUp"/>
+        <RadioButton x:Name="Rb_one" Content="jeden użytkownik" HorizontalAlignment="Left" Margin="18,37,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked_1" IsChecked="True" Height="20" PreviewKeyUp="Rb_one_PreviewKeyUp"/>
+        <CheckBox x:Name="Cb_test_0" Content="CheckBox" HorizontalAlignment="Left" Margin="11,591,0,0" VerticalAlignment="Top" Width="16" KeyUp="Cb_test_0_KeyUp" Visibility="Hidden" />
+        <CheckBox x:Name="Cb_test_1" Content="CheckBox" HorizontalAlignment="Left" Margin="31,591,0,0" VerticalAlignment="Top" Width="16" KeyUp="Cb_test_1_KeyUp" Visibility="Hidden" />
+        <StackPanel HorizontalAlignment="Left" Height="21" Margin="20,523,0,0" VerticalAlignment="Top" Width="307">
+            <CheckBox x:Name="Clean" Content="Wyczyść formularz po stworzeniu użytkownika" HorizontalAlignment="Left" VerticalAlignment="Top" PreviewKeyUp="Clean_PreviewKeyUp" Margin="0,0,-165,0" />
+        </StackPanel>
+    </Grid>
+</Window>
