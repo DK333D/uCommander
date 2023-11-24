@@ -10,3 +10,5 @@ Aby móc korzystać z programu należy uprzednio zainstalować bezpłatny zestaw
 platformy.NET Framework 4.5 (np. z oficjalnej strony Microsoftu).
 
 ![image](https://github.com/DK333D/uCommander/assets/64826011/24916eb7-40ce-4d7a-af87-fafb95681b59)
+
+![image](https://github.com/DK333D/uCommander/assets/64826011/e25d938b-f292-4ef0-ac36-d2b3c4543be1)
