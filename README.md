@@ -1,5 +1,7 @@
 # uCommander
-Program do zarządzania użytkownikami w systemach Windows
+Program do zarządzania użytkownikami w systemach Windows.
+Jest to program stworzony w ramach 25. edycji konkursu "Na najlepszy Program Komputerowy" organizowanego corocznie dla uczniów szkół ponadpodstawowych przez Oddział Krakowskiego SEP. 
+https://sep.com.pl/tydzien-w-sep/214/konkurs-komputerowy-w-krakowie.html
 
 ### Ważne informacje
 Program został stworzony w języku C# z użyciem WPF w środowisku Visual Studio 2015.
